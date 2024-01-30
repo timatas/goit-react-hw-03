@@ -24,7 +24,6 @@ export const ContactForm = ({ onAdd }) => {
       initialValues={{ name: "", number: "" }}
       validationSchema={ContactFormSchema}
       onSubmit={(values, actions) => {
-        console.log(values);
         onAdd({ id: nanoid(3), ...values });
         actions.resetForm();
       }}
@@ -42,7 +41,9 @@ export const ContactForm = ({ onAdd }) => {
           <ErrorMessage className={css.error} name="number" component="span" />
         </div>
 
-        <button type="submit">Add contact</button>
+        <button className={css.button} type="submit">
+          Add contact
+        </button>
       </Form>
     </Formik>
   );
